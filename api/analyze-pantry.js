@@ -1,4 +1,4 @@
-import { sendJson, parseBody, getOutputText, validateImageData, responseSchema } from './_shared.mjs';
+import { sendJson, parseBody, getOutputText, validateImageData, responseSchema } from './_shared.js';
 
 export default async function handler(req, res) {
   // Only allow POST requests
@@ -69,4 +69,3 @@ export default async function handler(req, res) {
     return sendJson(res, status, { error: error.message || 'Something went wrong. Please try again.' });
   }
 }
-

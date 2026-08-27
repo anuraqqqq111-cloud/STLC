@@ -1,5 +1,5 @@
 // Shared schemas and helpers for Vercel Serverless Functions.
-// This file is prefixed with "_" so Vercel does NOT treat it as an endpoint.
+// Prefixed with "_" so Vercel does not expose it as an HTTP endpoint.
 
 export const responseSchema = {
   type: 'object',
@@ -37,23 +37,30 @@ export const responseSchema = {
 };
 
 export const recipeSuggestionSchema = {
-  type: 'object', additionalProperties: false,
+  type: 'object',
+  additionalProperties: false,
   properties: {
     message: { type: 'string' },
     recipes: {
-      type: 'array', maxItems: 4,
+      type: 'array',
+      maxItems: 4,
       items: {
-        type: 'object', additionalProperties: false,
+        type: 'object',
+        additionalProperties: false,
         properties: {
-          title: { type: 'string' }, time: { type: 'string' }, tag: { type: 'string' },
-          summary: { type: 'string' }, matchReason: { type: 'string' },
+          title: { type: 'string' },
+          time: { type: 'string' },
+          tag: { type: 'string' },
+          summary: { type: 'string' },
+          matchReason: { type: 'string' },
           ingredients: { type: 'array', items: { type: 'string' } },
           steps: { type: 'array', items: { type: 'string' } },
         },
         required: ['title', 'time', 'tag', 'summary', 'matchReason', 'ingredients', 'steps'],
       },
     },
-  }, required: ['message', 'recipes'],
+  },
+  required: ['message', 'recipes'],
 };
 
 export function sendJson(res, status, data) {
@@ -118,5 +125,3 @@ export function validateImageData(imageData) {
     throw Object.assign(new Error('Please use a JPG, PNG, WEBP, or GIF photo.'), { status: 400 });
   }
 }
-
-

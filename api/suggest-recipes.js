@@ -1,4 +1,4 @@
-import { sendJson, parseBody, getOutputText, recipeSuggestionSchema } from './_shared.mjs';
+import { sendJson, parseBody, getOutputText, recipeSuggestionSchema } from './_shared.js';
 
 export default async function handler(req, res) {
   // Only allow POST requests
@@ -78,4 +78,3 @@ Return up to four practical dish ideas, ranked by how many of their required ing
     return sendJson(res, status, { error: error.message || 'Something went wrong. Please try again.' });
   }
 }
-
