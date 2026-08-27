@@ -11,7 +11,8 @@ const staticFiles = new Map([
   ['/', 'index.html'],
   ['/index.html', 'index.html'],
   ['/styles.css', 'styles.css'],
-  ['/app.js', 'app.js'],
+  ['/client.js', 'client.js'],
+  ['/app.js', 'client.js'],
 ]);
 const mimeTypes = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
 

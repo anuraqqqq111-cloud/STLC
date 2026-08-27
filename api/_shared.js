@@ -125,3 +125,4 @@ export function validateImageData(imageData) {
     throw Object.assign(new Error('Please use a JPG, PNG, WEBP, or GIF photo.'), { status: 400 });
   }
 }
+

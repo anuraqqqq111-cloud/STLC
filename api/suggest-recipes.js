@@ -78,3 +78,4 @@ Return up to four practical dish ideas, ranked by how many of their required ing
     return sendJson(res, status, { error: error.message || 'Something went wrong. Please try again.' });
   }
 }
+

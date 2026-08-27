@@ -69,3 +69,4 @@ export default async function handler(req, res) {
     return sendJson(res, status, { error: error.message || 'Something went wrong. Please try again.' });
   }
 }
+
