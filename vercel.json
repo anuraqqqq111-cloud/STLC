@@ -1,8 +1,10 @@
 {
+  "buildCommand": null,
+  "installCommand": null,
+  "outputDirectory": ".",
   "functions": {
     "api/*.mjs": {
       "maxDuration": 30
     }
   }
 }
-
