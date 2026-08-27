@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "echo 'Static build ready'",
     "start": "node --env-file=.env server.mjs",
     "dev": "node --watch --env-file=.env server.mjs"
   }
