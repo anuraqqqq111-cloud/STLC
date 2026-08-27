@@ -1,4 +1,4 @@
-import { sendJson, getOutputText, validateImageData, responseSchema } from './_shared.mjs';
+import { sendJson, parseBody, getOutputText, validateImageData, responseSchema } from './_shared.mjs';
 
 export default async function handler(req, res) {
   // Only allow POST requests
@@ -7,7 +7,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { imageData } = req.body;
+    const body = await parseBody(req);
+    const { imageData } = body;
     validateImageData(imageData);
 
     if (!process.env.OPENAI_API_KEY) {

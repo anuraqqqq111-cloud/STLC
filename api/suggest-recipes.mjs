@@ -1,4 +1,4 @@
-import { sendJson, getOutputText, recipeSuggestionSchema } from './_shared.mjs';
+import { sendJson, parseBody, getOutputText, recipeSuggestionSchema } from './_shared.mjs';
 
 export default async function handler(req, res) {
   // Only allow POST requests
@@ -7,7 +7,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { ingredients: rawIngredients, preference } = req.body;
+    const body = await parseBody(req);
+    const { ingredients: rawIngredients, preference } = body;
 
     const ingredients = Array.isArray(rawIngredients)
       ? rawIngredients.map(item => String(item).trim()).filter(Boolean).slice(0, 40)
